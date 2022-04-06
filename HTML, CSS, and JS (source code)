@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<head> 
+<title> title goes here </title>
+
+<meta name = 'viewport' content='width=device-width, initial-scale=1.0'>
+<style>
+
+* {
+  margin:0;
+}
+
+body {
+
+ color: white;
+ background-color:#CB6B57;
+
+}
+
+.box {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  padding: 25px;
+  margin-top: 55px;
+  font-family:  'Time New Roman', Serif;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px black;
+  box-sizing: content-box;
+  width: 100%;
+  
+}
+
+.text {
+  height: 45px;
+  width: 180px;
+  margin: 10px;
+
+}
+
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  text-shadow: 4px 4px 4px black; 
+  font-size: 65px;
+  background-color:#9e5445;
+  box-shadow: 3px 3px 6px black;
+
+
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 4px 4px 6px black;  
+  font-size: 65px;
+
+}
+
+
+
+</style>
+
+</head>
+  <h1> Reverse your name! </h1>
+  <body>
+    <div class='box'>
+      First: <input type='text' id='entry' class='text' placeholder='First name'></input>
+      Last: <input type='text' id='entry2' class='text' placeholder='Last name'></input>
+      <button type='submit' id='btn' onclick='nameReverse()'> Go </button>
+    </div>
+
+    <div id='container' class='contain'></div>
+    
+    
+  <script>
+    
+    const nameReverse = function(name, last) {
+  
+
+  name = document.querySelector('#entry').value;
+  last = document.querySelector('#entry2').value;
+  const btn = document.querySelector('#btn');
+  const div = document.getElementById('container'); 
+
+
+  if (!last) {
+    
+    name = name.toLowerCase();
+  
+    const myArray = [...name];
+  
+    const reversed = myArray.reverse();
+
+    const stringOne = reversed.join();
+
+    const improved = stringOne.replaceAll(',', '');
+
+    const resultingName = improved.slice(0,1).toUpperCase() + improved.slice(1, improved.length).toLowerCase();
+  
+    console.log(`${resultingName}`);
+    
+    div.textContent = `${resultingName}`
+     
+  
+  } else if (name && last){
+  
+      name = name.toLowerCase();
+  
+      const myArray = [...name];
+  
+      const reversed = myArray.reverse();
+  
+      const stringOne = reversed.join();
+
+      const improved = stringOne.replaceAll(',', '');
+
+      const resultingName = improved.slice(0,1).toUpperCase() + improved.slice(1, improved.length).toLowerCase();
+
+      last = last.toLowerCase();
+
+      const myArray2 = [...last];
+  
+      const reversedLast = myArray2.reverse();
+
+      const stringTwo = reversedLast.join();
+   
+      const improvedLast = stringTwo.replaceAll(',', '');
+
+      const resultingLast = improvedLast.slice(0,1).toUpperCase() + improvedLast.slice(1, improvedLast.length).toLowerCase();
+   
+      console.log(`${resultingName} ${resultingLast}`);
+   
+      div.textContent =  `${resultingName} ${resultingLast}`;
+    
+    } else if (!name) {
+    
+        last = last.toLowerCase();
+
+        const myArray2 = [...last];
+  
+        const reversedLast = myArray2.reverse();
+  
+        const stringTwo = reversedLast.join();
+   
+        const improvedLast = stringTwo.replaceAll(',', '');
+
+        const resultingLast = improvedLast.slice(0,1).toUpperCase() + improvedLast.slice(1, improvedLast.length).toLowerCase();
+   
+        console.log(`${resultingLast}`);
+     
+        div.textContent = `${resultingLast}`;
+  
+      }
+
+
+    document.querySelector('#entry').value = '';
+    document.querySelector('#entry2').value = '';
+    
+  
+} 
+
+
+  </script>
+  
+  </body>
+
+
+
+</html>
+    
